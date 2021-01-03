@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import {catchError, map, tap} from 'rxjs/operators';
 import {Position} from '../model/position.model';
 import {Profile} from '../model/profile.model';
+import {environment} from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +17,7 @@ export class ProfileService {
 
     getProfiles(): Observable<Profile[]> {
         return this.httpClient
-            .get<Position[]>(`http://192.168.0.46:8000/api/profiles/`)
+            .get<Position[]>(`${environment.host}/api/profiles/`)
             .pipe(
                 catchError(err => {
                     console.error('Error');

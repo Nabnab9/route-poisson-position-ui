@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {catchError, map, tap} from 'rxjs/operators';
 import {Position} from '../model/position.model';
+import {environment} from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +16,7 @@ export class PositionService {
 
     getPositions(): Observable<Position[]> {
         return this.httpClient
-            .get<Position[]>(`http://192.168.0.46:8000/api/positions/`)
+            .get<Position[]>(`${environment.host}/api/positions/`)
             .pipe(
                 catchError(err => {
                     console.error('Error');
