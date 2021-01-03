@@ -17,6 +17,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {Position} from './model/position.model';
+import {PositionService} from './service/position.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AppRoutingModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [PositionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

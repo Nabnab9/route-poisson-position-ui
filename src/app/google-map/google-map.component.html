@@ -2,5 +2,11 @@
   <google-map
     height="99%"
     width="99%"
-    [center]="center"></google-map>
+    [center]="center">
+
+    <map-marker *ngFor="let p of positions"
+                [position]="p.coordinates">
+    </map-marker>
+
+  </google-map>
 </div>
