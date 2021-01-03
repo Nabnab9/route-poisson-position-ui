@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {PositionService} from '../service/position.service';
-import {Position} from '../model/position.model';
+import {PositionService} from '../../service/position.service';
+import {Position} from '../../model/position.model';
 
 @Component({
   selector: 'app-google-map',

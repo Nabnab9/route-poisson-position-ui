@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {GoogleMapComponent} from '../google-map/google-map.component';
+import {GoogleMapComponent} from './components/google-map/google-map.component';
+import {PageNotFoundComponent} from './components/page-not-found-component/page-not-found.component';
 
 const routes: Routes = [
+  { path: '',   redirectTo: '/carte', pathMatch: 'full' },
   {
     path: 'carte',
     component: GoogleMapComponent,
   },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
