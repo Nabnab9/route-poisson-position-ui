@@ -1,6 +1,3 @@
-<mat-grid-list cols="2" rowHeight="2:1" gutterSize="20px">
-  <mat-grid-tile *ngFor="let p of profiles">
-    <div>{{p.name}}</div>
-    <div>{{p.battery}}</div>
-  </mat-grid-tile>
-</mat-grid-list>
+<div style="margin: 10px" fxLayout="column" fxLayoutGap="10px">
+    <app-team *ngFor="let p of profiles" [profile]="p"></app-team>
+</div>

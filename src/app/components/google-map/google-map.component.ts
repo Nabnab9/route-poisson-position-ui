@@ -8,7 +8,7 @@ import {Position} from '../../model/position.model';
   styleUrls: ['./google-map.component.css']
 })
 export class GoogleMapComponent {
-  center: google.maps.LatLngLiteral = {lat: 48.3517387, lng: 0.3813534};
+  center: google.maps.LatLngLiteral = {lat: 47.9967429, lng: 0.1932251};
 
   positions: Position[];
 
