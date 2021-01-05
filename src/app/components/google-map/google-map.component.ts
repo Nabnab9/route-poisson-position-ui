@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {PositionService} from '../../service/position.service';
-import {Position} from '../../model/position.model';
 import {TeamService} from '../../service/team.service';
 import {Team} from '../../model/team.model';
 
+// more documentation here : https://github.com/angular/components/tree/master/src/google-maps
 @Component({
   selector: 'app-google-map',
   templateUrl: './google-map.component.html',
