@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Profile} from '../../model/profile.model';
+import {Team} from '../../model/team.model';
 
 @Component({
   selector: 'app-team',
@@ -8,7 +8,7 @@ import {Profile} from '../../model/profile.model';
 })
 export class TeamComponent implements OnInit {
 
-  @Input() profile: Profile;
+  @Input() team: Team;
 
   constructor() { }
 

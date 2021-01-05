@@ -16,14 +16,16 @@ export class PositionService {
 
     getPositions(): Observable<Position[]> {
         return this.httpClient
-            .get<Position[]>(`${environment.host}/api/positions/`)
+            .get<Position[]>(`${environment.host}/api/positions`)
             .pipe(
                 catchError(err => {
                     console.error('Error');
                     throw err;
-                }),
-                tap(console.log)
+                })
             )
-            .pipe(map(positions => positions.map(p => new Position(p))));
+            .pipe(
+              map(positions => positions.map(p => new Position(p))),
+              tap(console.log)
+            );
     }
 }

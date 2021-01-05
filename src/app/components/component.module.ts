@@ -6,7 +6,7 @@ import {PageNotFoundComponent} from './page-not-found-component/page-not-found.c
 import {TeamManagementComponent} from './team-management/team-management.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {PositionService} from '../service/position.service';
-import {ProfileService} from '../service/profile.service';
+import {TeamService} from '../service/team.service';
 import { TeamComponent } from './team/team.component';
 
 
@@ -23,6 +23,6 @@ import { TeamComponent } from './team/team.component';
     SharedModule,
     AppRoutingModule
   ],
-  providers: [PositionService, ProfileService]
+  providers: [PositionService, TeamService]
 })
 export class ComponentModule { }

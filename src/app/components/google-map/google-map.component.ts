@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {PositionService} from '../../service/position.service';
 import {Position} from '../../model/position.model';
+import {TeamService} from '../../service/team.service';
+import {Team} from '../../model/team.model';
 
 @Component({
   selector: 'app-google-map',
@@ -10,12 +12,20 @@ import {Position} from '../../model/position.model';
 export class GoogleMapComponent {
   center: google.maps.LatLngLiteral = {lat: 47.9967429, lng: 0.1932251};
 
-  positions: Position[];
+  teams: Team[];
 
-  constructor(private positionService: PositionService) {
-    this.positionService.getPositions().subscribe(
-      (positions: Position[]) => {
-        this.positions = positions;
+  // full list here https://sites.google.com/site/gmapsdevelopment/
+  markerOptions: google.maps.MarkerOptions = {
+    icon: {
+      url: 'http://maps.google.com/mapfiles/kml/paddle/10-lv.png'
+    }
+  };
+
+  constructor(private positionService: PositionService,
+              private teamService: TeamService) {
+    this.teamService.getTeams().subscribe(
+      (positions: Team[]) => {
+        this.teams = positions;
       }
     );
   }

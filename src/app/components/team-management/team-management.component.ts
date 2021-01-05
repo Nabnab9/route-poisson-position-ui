@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PositionService} from '../../service/position.service';
 import {Position} from '../../model/position.model';
-import {ProfileService} from '../../service/profile.service';
-import {Profile} from '../../model/profile.model';
+import {TeamService} from '../../service/team.service';
+import {Team} from '../../model/team.model';
 
 @Component({
   selector: 'app-team-management',
@@ -11,12 +11,12 @@ import {Profile} from '../../model/profile.model';
 })
 export class TeamManagementComponent {
 
-  profiles: Profile[];
+  teams: Team[];
 
-  constructor(private profileService: ProfileService) {
-    this.profileService.getProfiles().subscribe(
-      (profiles: Profile[]) => {
-        this.profiles = profiles;
+  constructor(private teamService: TeamService) {
+    this.teamService.getTeams().subscribe(
+      (teams: Team[]) => {
+        this.teams = teams;
       }
     );
   }

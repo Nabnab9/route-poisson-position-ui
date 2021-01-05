@@ -1,11 +1,10 @@
-import {Profile} from './profile.model';
+import {Team} from './team.model';
 
 export class Position {
   longitude: number;
   latitude: number;
   dateTime: string;
   speed: number;
-  profile: Profile;
   battery: number;
   serial: string;
   androidId: string;
@@ -18,7 +17,6 @@ export class Position {
     this.latitude = position.latitude;
     this.dateTime = position.dateTime;
     this.speed = position.speed;
-    this.profile = position.profile;
     this.battery = position.battery;
     this.serial = position.serial;
     this.androidId = position.androidId;

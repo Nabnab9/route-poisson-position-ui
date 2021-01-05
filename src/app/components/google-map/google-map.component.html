@@ -4,9 +4,12 @@
     width="99%"
     [center]="center">
 
-    <map-marker *ngFor="let p of positions"
-                [position]="p.coordinates">
-    </map-marker>
+    <div *ngFor="let t of teams">
+      <map-marker *ngFor="let p of t.positions"
+                  [position]="p.coordinates"
+                  [options]="markerOptions">
+      </map-marker>
+    </div>
 
   </google-map>
 </div>

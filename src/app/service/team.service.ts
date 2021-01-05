@@ -3,28 +3,30 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {catchError, map, tap} from 'rxjs/operators';
 import {Position} from '../model/position.model';
-import {Profile} from '../model/profile.model';
+import {Team} from '../model/team.model';
 import {environment} from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
-export class ProfileService {
+export class TeamService {
 
     constructor(
         private httpClient: HttpClient
     ) {}
 
-    getProfiles(): Observable<Profile[]> {
+    getTeams(): Observable<Team[]> {
         return this.httpClient
-            .get<Position[]>(`${environment.host}/api/profiles/`)
+            .get<Position[]>(`${environment.host}/api/teams`)
             .pipe(
                 catchError(err => {
                     console.error('Error');
                     throw err;
-                }),
-                tap(console.log)
+                })
             )
-            .pipe(map(profile => profile.map(p => new Profile(p))));
+            .pipe(
+              map(team => team.map(p => new Team(p))),
+              tap(console.log)
+            );
     }
 }
