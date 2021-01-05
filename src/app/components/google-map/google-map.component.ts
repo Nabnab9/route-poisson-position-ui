@@ -4,6 +4,7 @@ import {TeamService} from '../../service/team.service';
 import {Team} from '../../model/team.model';
 
 // more documentation here : https://github.com/angular/components/tree/master/src/google-maps
+// and here : https://developers.google.com/maps/documentation/javascript/reference
 @Component({
   selector: 'app-google-map',
   templateUrl: './google-map.component.html',
