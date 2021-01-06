@@ -11,7 +11,7 @@ import {environment} from '../../environments/environment';
 })
 export class TeamService implements OnDestroy {
 
-  private teams$: Observable<Team[]>;
+  private readonly teams$: Observable<Team[]>;
 
   private stopPolling = new Subject();
 

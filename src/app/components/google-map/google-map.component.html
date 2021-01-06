@@ -7,7 +7,7 @@
     <div *ngFor="let t of teams">
       <map-marker *ngFor="let p of t.positions"
                   [position]="p.coordinates"
-                  [options]="markerOptions">
+                  [options]="t.markerOptions">
       </map-marker>
     </div>
 

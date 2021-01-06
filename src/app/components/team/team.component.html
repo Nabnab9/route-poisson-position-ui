@@ -1,6 +1,8 @@
 <div style="padding: 20px; border-radius: 10px" class="mat-elevation-z2" fxLayoutAlign="center center">
   <div fxFlex="">{{team.name}}</div>
+  <div fxFlex="">#{{team.letter}}</div>
   <div fxFlex="">Batterie restante : {{team.battery}}%</div>
+  <div fxFlex="">Nombre de positions : {{team.positions.length}}</div>
   <button mat-button>
     <mat-icon>edit</mat-icon>
   </button>
