@@ -8,6 +8,7 @@ import {AppRoutingModule} from '../app-routing.module';
 import {PositionService} from '../service/position.service';
 import {TeamService} from '../service/team.service';
 import { TeamComponent } from './team/team.component';
+import { TeamDetailComponent } from './team-detail/team-detail.component';
 
 
 
@@ -16,7 +17,8 @@ import { TeamComponent } from './team/team.component';
     GoogleMapComponent,
     PageNotFoundComponent,
     TeamManagementComponent,
-    TeamComponent
+    TeamComponent,
+    TeamDetailComponent
   ],
   imports: [
     CommonModule,

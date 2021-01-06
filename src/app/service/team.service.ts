@@ -19,7 +19,6 @@ export class TeamService implements OnDestroy {
     private httpClient: HttpClient
   ) {
     this.teams$ = timer(0, 10000).pipe(
-      tap(console.log),
       switchMap(() => this.getTeamsCall()),
       retry(),
       takeUntil(this.stopPolling)
@@ -36,14 +35,11 @@ export class TeamService implements OnDestroy {
         })
       )
       .pipe(
-        map(team => team.map(p => new Team(p))),
-        tap(console.log)
+        map(team => team.map(p => new Team(p)))
       );
   }
 
   getTeams(): Observable<Team[]> {
-    console.log('getTeams called');
-    console.log('this.teams$ : ', this.teams$);
     return this.teams$;
   }
 

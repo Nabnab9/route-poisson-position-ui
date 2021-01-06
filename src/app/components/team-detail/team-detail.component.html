@@ -1,0 +1,9 @@
+<p>Niveau de batterie {{team?.battery}}%</p>
+<p>On est sur la team {{team?.name}}</p>
+<p>Nombre de positions enregistrées {{team?.positions.length}}</p>
+<google-map
+  [center]="center">
+  <map-marker *ngFor="let p of team?.positions"
+              [position]="p.coordinates"
+              [options]="team.markerOptions"></map-marker>
+</google-map>
