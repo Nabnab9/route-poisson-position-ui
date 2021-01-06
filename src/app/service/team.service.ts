@@ -18,7 +18,7 @@ export class TeamService implements OnDestroy {
   constructor(
     private httpClient: HttpClient
   ) {
-    this.teams$ = timer(1, 3000).pipe(
+    this.teams$ = timer(1, 10000).pipe(
       switchMap(() => this.getTeamsCall()),
       retry(),
       share(),
