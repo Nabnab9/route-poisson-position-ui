@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {PositionService} from '../../service/position.service';
-import {Position} from '../../model/position.model';
+import {Component} from '@angular/core';
 import {TeamService} from '../../service/team.service';
 import {Team} from '../../model/team.model';
 
