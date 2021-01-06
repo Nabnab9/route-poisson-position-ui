@@ -1,32 +1,51 @@
-import {Observable} from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import {catchError, map, tap} from 'rxjs/operators';
+import {Observable, Subject, timer} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable, OnDestroy} from '@angular/core';
+import {catchError, map, retry, share, switchMap, takeUntil, tap} from 'rxjs/operators';
 import {Position} from '../model/position.model';
 import {Team} from '../model/team.model';
 import {environment} from '../../environments/environment';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-export class TeamService {
+export class TeamService implements OnDestroy {
 
-    constructor(
-        private httpClient: HttpClient
-    ) {}
+  private teams$: Observable<Team[]>;
 
-    getTeams(): Observable<Team[]> {
-        return this.httpClient
-            .get<Position[]>(`${environment.host}/api/teams`)
-            .pipe(
-                catchError(err => {
-                    console.error('Error');
-                    throw err;
-                })
-            )
-            .pipe(
-              map(team => team.map(p => new Team(p))),
-              tap(console.log)
-            );
-    }
+  private stopPolling = new Subject();
+
+  constructor(
+    private httpClient: HttpClient
+  ) {
+    this.teams$ = timer(1, 3000).pipe(
+      switchMap(() => this.getTeamsCall()),
+      retry(),
+      share(),
+      takeUntil(this.stopPolling)
+    );
+  }
+
+  getTeamsCall(): Observable<Team[]> {
+    return this.httpClient
+      .get<Position[]>(`${environment.host}/api/teams`)
+      .pipe(
+        catchError(err => {
+          console.error('Error');
+          throw err;
+        })
+      )
+      .pipe(
+        map(team => team.map(p => new Team(p))),
+        tap(console.log)
+      );
+  }
+
+  getTeams(): Observable<Team[]> {
+    return this.teams$;
+  }
+
+  ngOnDestroy(): void {
+    this.stopPolling.next();
+  }
 }

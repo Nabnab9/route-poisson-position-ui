@@ -14,11 +14,7 @@ export class TeamManagementComponent {
   teams: Team[];
 
   constructor(private teamService: TeamService) {
-    this.teamService.getTeams().subscribe(
-      (teams: Team[]) => {
-        this.teams = teams;
-      }
-    );
+    this.teamService.getTeams().subscribe(value => this.teams = value);
   }
 
 }

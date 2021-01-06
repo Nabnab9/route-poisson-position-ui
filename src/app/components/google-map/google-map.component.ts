@@ -23,11 +23,7 @@ export class GoogleMapComponent {
   };
 
   constructor(private positionService: PositionService,
-              private teamService: TeamService) {
-    this.teamService.getTeams().subscribe(
-      (positions: Team[]) => {
-        this.teams = positions;
-      }
-    );
+              public teamService: TeamService) {
+    this.teamService.getTeams().subscribe(value => this.teams = value);
   }
 }
