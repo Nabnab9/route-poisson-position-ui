@@ -2,9 +2,9 @@
   <google-map
     height="99%"
     width="99%"
-    [center]="center">
+    [options]="options" >
 
-    <div *ngFor="let t of teams">
+    <div *ngFor="let t of filteredTeams">
       <map-marker *ngFor="let p of t.positions"
                   [position]="p.coordinates"
                   [options]="t.markerOptions">
@@ -12,4 +12,9 @@
     </div>
 
   </google-map>
+  <div class="settings-container">
+    <button mat-fab (click)="openBottomSheet()">
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>
 </div>

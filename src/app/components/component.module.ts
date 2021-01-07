@@ -9,6 +9,8 @@ import {PositionService} from '../service/position.service';
 import {TeamService} from '../service/team.service';
 import { TeamComponent } from './team/team.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
+import { MapSelectTeamComponent } from './map-select-team/map-select-team.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -18,12 +20,14 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
     PageNotFoundComponent,
     TeamManagementComponent,
     TeamComponent,
-    TeamDetailComponent
+    TeamDetailComponent,
+    MapSelectTeamComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [PositionService, TeamService]
 })

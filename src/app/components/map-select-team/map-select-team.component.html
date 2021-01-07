@@ -1,0 +1,9 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <mat-selection-list fxFill [(ngModel)]="selectedTeams" (ngModelChange)="onNgModelChange($event)">
+    <mat-list-option *ngFor="let t of teams" [value]="t">
+      <span mat-line>Equipe #{{t.letter}} : {{t.name}}</span>
+      <img matListAvatar [src]="t.markerOptions.icon.url" alt="icone équipe">
+    </mat-list-option>
+  </mat-selection-list>
+  <button mat-raised-button class="mat-primary" (click)="closeBottomSheet()">Ok</button>
+</div>
