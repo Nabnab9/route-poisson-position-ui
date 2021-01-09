@@ -3,6 +3,10 @@
   <div fxFlex="">#{{team.letter}}</div>
   <div fxFlex="">Batterie restante : {{team.battery}}%</div>
   <div fxFlex="">Nombre de positions : {{team.positions.length}}</div>
+  <a matTooltip="Propriétés application GPS" matTooltipPosition="left" mat-flat-button
+     [href]="getUrl()">
+    <mat-icon>settings_remote</mat-icon>
+  </a>
   <button mat-button [routerLink]="['/gestion-equipe', team.name]">
     <mat-icon>edit</mat-icon>
   </button>
