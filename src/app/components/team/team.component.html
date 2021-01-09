@@ -1,13 +1,19 @@
-<div class="mat-elevation-z2 team" fxLayoutAlign="center center">
-  <div fxFlex="">{{team.name}}</div>
-  <div fxFlex="">#{{team.letter}}</div>
-  <div fxFlex="">Batterie restante : {{team.battery}}%</div>
-  <div fxFlex="">Nombre de positions : {{team.positions.length}}</div>
-  <a matTooltip="Propriétés application GPS" matTooltipPosition="left" mat-flat-button
+<div class="mat-elevation-z2 team" fxLayoutAlign="center center" fxLayoutGap="10px">
+  <div>#{{team.letter}}</div>
+  <div fxFlex="20">{{team.name}}</div>
+  <div fxFlex fxLayoutAlign="center center">
+    <mat-icon>{{team.battery > 15 ? 'battery_full' : 'battery_alert'}}</mat-icon>
+    {{team.battery}}%
+  </div>
+  <div fxFlex fxLayoutAlign="center center" fxLayoutGap="3px">
+    <mat-icon>{{team.positions.length > 0 ? 'gps_fixed' : 'gps_not_fixed'}}</mat-icon>
+    <div>{{team.positions.length}}</div>
+  </div>
+  <a matTooltip="Propriétés application GPS" matTooltipPosition="left" mat-icon-button
      [href]="getUrl()">
     <mat-icon>settings_remote</mat-icon>
   </a>
-  <button mat-button [routerLink]="['/gestion-equipe', team.name]">
+  <button mat-icon-button [routerLink]="['/gestion-equipe', team.name]">
     <mat-icon>edit</mat-icon>
   </button>
 </div>

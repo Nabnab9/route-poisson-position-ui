@@ -25,7 +25,7 @@ export class GoogleMapComponent {
     backgroundColor: '#c2185b',
     clickableIcons: false,
     fullscreenControl: true,
-    zoomControl: true,
+    zoomControl: false,
   };
 
   constructor(
