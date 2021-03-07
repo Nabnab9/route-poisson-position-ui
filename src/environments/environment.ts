@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  host: 'http://192.168.0.46:8080'
-  // host: 'http://192.168.1.34:8080'
+  // host: 'http://192.168.0.46:8080'
+  host: 'http://192.168.1.34:8080'
 };
 
 /*

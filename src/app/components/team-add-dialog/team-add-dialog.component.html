@@ -1,11 +1,15 @@
 <h1 mat-dialog-title>Ajouter une équipe</h1>
 <div mat-dialog-content>
   <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
+    <mat-label>Nom</mat-label>
     <input matInput [(ngModel)]="team.name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Lettre</mat-label>
+    <input matInput [(ngModel)]="team.letter">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button (click)="onAddTeam()">Ok</button>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-raised-button color="accent" (click)="onAddTeam()">Enregistrer</button>
 </div>

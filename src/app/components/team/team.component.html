@@ -18,6 +18,9 @@
       <button mat-icon-button [routerLink]="['/gestion-equipe', team.name]">
         <mat-icon>read_more</mat-icon>
       </button>
+      <button mat-icon-button (click)="openDeleteTeamDialog()" color="primary">
+        <mat-icon>delete</mat-icon>
+      </button>
     </mat-panel-title>
   </mat-expansion-panel-header>
   <div>

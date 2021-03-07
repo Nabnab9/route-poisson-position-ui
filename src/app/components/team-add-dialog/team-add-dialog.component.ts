@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {Team} from '../../model/team.model';
 import {TeamService} from '../../service/team.service';
@@ -8,7 +8,7 @@ import {TeamService} from '../../service/team.service';
   templateUrl: './team-add-dialog.component.html',
   styleUrls: ['./team-add-dialog.component.css']
 })
-export class TeamAddDialogComponent {
+export class TeamAddDialogComponent implements OnInit {
 
   team: Team;
 
@@ -16,7 +16,11 @@ export class TeamAddDialogComponent {
     public dialogRef: MatDialogRef<TeamAddDialogComponent>,
     private teamService: TeamService,
   ) {
-    // this.team = new Team({});
+
+  }
+
+  ngOnInit(): void {
+    this.team = new Team({positions: []});
   }
 
   onNoClick(): void {
@@ -24,8 +28,11 @@ export class TeamAddDialogComponent {
   }
 
   onAddTeam(): void {
-    this.teamService.postTeam(this.team).subscribe(t => {
-      this.dialogRef.close();
-    });
+    console.log(this.team);
+    this.teamService
+      .postTeam(this.team)
+      .subscribe(t => {
+        this.dialogRef.close({teamAdded: this.team});
+      });
   }
 }

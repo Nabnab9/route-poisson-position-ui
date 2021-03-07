@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Supprimer {{team.name}}</h1>
+<div mat-dialog-content>
+  Êtes-vous sûr de vouloir supprimer l'équipe : {{team.name}} et ses {{team.positions?.length}} positions ?
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-raised-button color="accent" (click)="onDeleteTeam()">Supprimer</button>
+</div>

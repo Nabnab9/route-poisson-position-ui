@@ -53,6 +53,17 @@ export class TeamService implements OnDestroy {
       );
   }
 
+  deleteTeam(teamId: string): Observable<any> {
+    return this.httpClient
+      .delete(`${environment.host}/api/teams/${teamId}`)
+      .pipe(
+        catchError(err => {
+          console.error('Error');
+          throw err;
+        })
+      );
+  }
+
   getTeams(): Observable<Team[]> {
     return this.teams$;
   }

@@ -16,13 +16,21 @@ export class TeamManagementComponent {
   constructor(
     private teamService: TeamService,
     public dialog: MatDialog,
-    ) {
+  ) {
     this.teamService.getTeams().subscribe(value => this.teams = value);
   }
 
   openAddTeamDialog(): void {
-    const dialogRef = this.dialog.open(TeamAddDialogComponent);
-
-    // dialogRef.afterClosed().subscribe();
+    this.dialog.open(TeamAddDialogComponent)
+      .afterClosed()
+      .subscribe((result: { teamAdded: Team }) => this.teams.push(result.teamAdded));
   }
+
+  onTeamDeleted(teamDeleted: Team): void {
+    const teamDeletedIndex = this.teams.indexOf(teamDeleted);
+    if (teamDeletedIndex > -1) {
+      this.teams.splice(teamDeletedIndex, 1);
+    }
+  }
+
 }
