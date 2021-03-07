@@ -20,7 +20,7 @@ export class GoogleMapComponent {
   namesToFilter: string[];
 
   options = {
-    center: {lat: 47.9967429, lng: 0.1932251},
+    center: {lat: 48.3517456054688, lng: 0.38136288523674},
     disableDefaultUI: true,
     backgroundColor: '#c2185b',
     clickableIcons: false,

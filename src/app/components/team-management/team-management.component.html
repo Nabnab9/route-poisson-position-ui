@@ -4,3 +4,9 @@
   fxLayoutGap="10px">
     <app-team *ngFor="let p of teams" [team]="p"></app-team>
 </mat-accordion>
+
+<div class="settings-container">
+  <button mat-fab (click)="openAddTeamDialog()" color="primary">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

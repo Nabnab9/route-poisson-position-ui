@@ -39,6 +39,20 @@ export class TeamService implements OnDestroy {
       );
   }
 
+  postTeam(team: Team): Observable<Team> {
+    return this.httpClient
+      .post<Team>(`${environment.host}/api/teams`, team)
+      .pipe(
+        catchError(err => {
+          console.error('Error');
+          throw err;
+        })
+      )
+      .pipe(
+        map(t => new Team(t))
+      );
+  }
+
   getTeams(): Observable<Team[]> {
     return this.teams$;
   }

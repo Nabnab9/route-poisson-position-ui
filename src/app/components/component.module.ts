@@ -11,6 +11,7 @@ import { TeamComponent } from './team/team.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { MapSelectTeamComponent } from './map-select-team/map-select-team.component';
 import {FormsModule} from '@angular/forms';
+import { TeamAddDialogComponent } from './team-add-dialog/team-add-dialog.component';
 
 
 
@@ -21,7 +22,8 @@ import {FormsModule} from '@angular/forms';
     TeamManagementComponent,
     TeamComponent,
     TeamDetailComponent,
-    MapSelectTeamComponent
+    MapSelectTeamComponent,
+    TeamAddDialogComponent
   ],
   imports: [
     CommonModule,
