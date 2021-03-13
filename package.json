@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "mamers": "ng serve --host 0.0.0.0 --disable-host-check --port 4200 --configuration=mamers",
+    "mans": "ng serve --host 0.0.0.0 --disable-host-check --port 4200 --configuration=mans"
   },
   "private": true,
   "dependencies": {
