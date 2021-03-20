@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   // host: 'http://192.168.0.46:8080'
-  host: 'http://192.168.1.34:8080'
+  host: 'http://185.212.226.60:8081'
 };
 
 /*
